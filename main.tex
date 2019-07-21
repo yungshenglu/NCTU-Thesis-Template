@@ -1,0 +1,118 @@
+% Set the class of document by NCTU
+\documentclass[master, watermark, final]{Class/NCTUtran}
+
+%----------------------------------------------------------------------
+% PACKAGE LOADING
+%----------------------------------------------------------------------
+
+% For multi-row table
+\usepackage{multirow}
+% Table style used in books
+\usepackage{booktabs}
+% Import PDF
+\usepackage{pdfpages}
+
+%----------------------------------------------------------------------
+% CONFIGURATION
+%----------------------------------------------------------------------
+
+% HINT: Fill in your information of this thesis in "Config/config.tex"
+\input{Config/config}
+% Modify the defualt font in "NCTUtran.cls"
+\input{Config/fonts}
+
+%----------------------------------------------------------------------
+% MAIN CONTENT
+%----------------------------------------------------------------------
+
+\begin{document}
+	% Show repeated author names in bibliography when using "IEEEtran.bst"
+	% HINT: Comment out this line if you don't set "IEEEtran" in \bibliographystyle{}
+	\bstctlcite{IEEEexample:BSTcontrol}
+
+	%%% FRONT MATTERS %%%
+	% 1. Cover Page (封面頁)
+	% 2. Title Page (標題頁)
+	% 5. Copyright Page (版權頁)
+	\maketitle
+	% 3. Certification (論文審訂書) [EMPTY]
+	% HINT: Put your certification file (PDF) into "1-Cert/"
+	\includepdf[pages={1}]{1-Cert/Certification-NE.pdf} 
+	%\includepdf[pages={1}]{Cert/Certification-CSE.pdf}
+	% 4. Authorization (授權書) [EMPTY]
+	% HINT: Put your authorization file (PDF) into "2-Auth/"
+	\includepdf[pages={1}]{2-Auth/Authorization-EX.pdf}
+
+	%%% ABSTRACT %%%
+	% 1. Chinese Abstract (中文摘要)
+	% HINT: Write down your contents in "3-Abs/Abstract-zh.tex"
+	\input{3-Abs/Abstract-zh}
+	% 2. English Abstract (英文摘要)
+	% HINT: Write down your contents in "3-Abs/Abstract-en.tex"
+	\input{3-Abs/Abstract-en}
+
+	%%% ACKNOWLEDGEMENT %%%
+	% 1. Acknowledgement (誌謝頁)
+	% HINT: Write down your contents in "4-Ack/Acknowledgement-zh.tex"
+	\input{4-Ack/Acknowledgement-zh}
+	% 2. Dedication (題獻頁) [PhD only]
+	% HINT: 
+	% * Only shown in the final mode of a PhD dissertation
+	% * Write down your contents in "4-Ack/Dedication.tex"
+	%\input{4-Ack/Dedication}
+
+	%%% TOC / LOF %%%
+	% Generate Table of Contents (目錄頁) and List of Figures (圖目頁)
+	\maketocs
+	% Set page numbering to 'arabic' (1, 2, 3, ...)
+	\mainmatter
+
+	%%% CHAPTERS %%%
+	% HINT:
+	% * Arrange the order of all chapters here
+	% * Add your chapters as follow
+	\input{5-Chapters/1-Introduction}
+	\input{5-Chapters/2-RelatedWork}
+	\input{5-Chapters/3-Design}
+	\input{5-Chapters/4-Evaluation}
+	\input{5-Chapters/5-Conclusion}
+
+	%%% BIBLIOGRAPHY %%%
+	% Set the style of bibliography
+	\bibliographystyle{IEEEtran}
+	% Add the bibliography to "Table of Contents"
+	\addBibToContents
+	% Include bibliography
+	% USAGE:
+	% 1. Please put your ".bib" file in the folder "6-Bib/"
+	% 2. Modify the command as follow: (Do NOT split with SPACE!)
+	%    \bibliography{6-Bib/bib1,6-Bib/bib2,...,6-Bib/bibN}
+	% NOTICE:
+	% 1. For IEEEtran users:
+	%    DO NOT remove "Bib/BSTcontrol.bib" when using "IEEEtran.bst". The reason is 
+	%    that when we cite two papers of the same (or similar) authors, "IEEEtran.bst"
+	%    would replace the author names with "------". To avoid this, we use "BSTControl.bib"
+	%    to set "ctldash_repeated_names" to 'no'.
+	% 2. For non IEEEtran users:
+	%    Please delete "6-Bib/BSTcontrol" from "\bibliography{}"
+	\bibliography{6-Bib/BSTcontrol,6-Bib/thesis}
+
+	%%% APPENDIX %%%
+	% Appendix (附錄)
+	% HINT: Arrange the order of all appendicies here
+	% HINT: Add your appendicies as follow
+	%\input{7-Appx/1-Appx}
+
+	%%% AUTHOR [PhD only] %%%
+	% 1. Curriculum Vitae (個人簡歷) [PhD only]
+	% HINT:
+	% * Write down your contents in "8-Author/CV.tex"
+	% * Only shown in the final mode of a PhD dissertation
+	%\input{8-Author/CV}
+	% 2. Publications (著作列表) [PhD only]
+	% HINT:
+	% * Write down your contents in "8-Author/Publications.tex"
+	% * Only shown in the final mode of a PhD dissertation
+	%\input{8-Author/Publications}
+
+\end{document}
