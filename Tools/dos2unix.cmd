@@ -1,0 +1,1 @@
+powershell -command "(Get-Content %1 -Raw).Replace("""`r`n""","""`n""") | Set-Content %1 -Force"

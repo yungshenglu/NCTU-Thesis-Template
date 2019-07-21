@@ -1,0 +1,1 @@
+powershell -command "& {get-content %2|select-object -first %1}"
