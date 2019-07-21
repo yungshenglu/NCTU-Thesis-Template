@@ -20,10 +20,6 @@
 ## Usage
 
 0. 下載此專案
-    ```bash
-    # Make sure your current directory is correct
-    $ git clone 
-    ```
 1. 執行以下指令進行編譯
     ```bash
     # Make sure your current directory is correct
