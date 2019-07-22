@@ -131,21 +131,32 @@
 %\usepackage[labelformat=simple]{subcaption}
 % Formatting the numbering of algorithm label
 \usepackage[ruled, vlined]{algorithm2e}
+% AMS math­e­mat­i­cal fa­cil­i­ties
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \DeclareMathOperator{\dis}{dist}
+% En­hanced sup­port for graph­ics
 \usepackage{graphicx}
 % Setting the path of figures
 \graphicspath{{./Figures/}}
-\usepackage{booktabs}
+% For in­clude En­cap­su­lated PostScript
 \usepackage{epsfig}
+% For con­vert EPS to PDF us­ing Ghostscript
 \usepackage{epstopdf}
+% Im­proved in­ter­face for float­ing ob­jects
 \usepackage{float}
+% For multi-row table
+\usepackage{multirow}
+% Table style used in books
+\usepackage{booktabs}
+% Import PDF file
+\usepackage{pdfpages}
+% A generic doc­u­ment com­mand parser
+\usepackage{xparse}
 
 %---
 \usepackage{psfrag}
-\usepackage{setspace}
 \usepackage{subfigure}
 \usepackage{type1cm}
 \usepackage{threeparttable}
@@ -251,6 +262,10 @@
 \def\enTitle#1{\gdef\@enTitle{#1}}
 % Chinese title of thesis/dissertation
 \def\zhTitle#1{\gdef\@zhTitle{#1}}
+% English keywords of thesis/dissertation
+\def\enKeywords#1{\gdef\@enKeywords{#1}}
+% Chinese keywords of thesis/dissertation
+\def\zhKeywords#1{\gdef\@zhKeywords{#1}}
 % The year and month the completed thesis is submitted in English
 \def\enDegreeYear#1{\gdef\@enDegreeYear{#1}}
 \def\enDegreeMonth#1{\gdef\@enDegreeMonth{#1}}
@@ -610,6 +625,50 @@
 \renewcommand\thesubfigure{ (\alph{subfigure})}
 
 %----------------------------------------------------------------------
+% CHINESE ACKNOWLEDGEMENT SIGNATURE (中文誌謝署名)
+%----------------------------------------------------------------------
+
+\def\zhAckSignature{
+	\begin{flushright}
+		\@zhStudentName \ 誌於 \\
+		{{\@zhUnivName}{\@zhInstName}} \\
+		\@zhDegreeYear
+	\end{flushright}
+}
+
+%----------------------------------------------------------------------
+% ENGLISH ACKNOWLEDGEMENT SIGNATURE (英文誌謝署名)
+%----------------------------------------------------------------------
+
+\def\enAckSignature{
+	\begin{flushleft}
+		\textbf{\@enStudentName} \\
+		{{\@enInstName}, {\@enUnivName}} \\
+		{{\@enDegreeMonth} {\@enDegreeYear}}
+	\end{flushleft}
+}
+
+%----------------------------------------------------------------------
+% CHINESE ABSTRACT KEYWORDS (中文摘要關鍵字)
+%----------------------------------------------------------------------
+
+\def\zhAbsKeywords{
+	\begin{flushleft}
+		{關鍵字：\textbf{\@zhKeywords}}
+	\end{flushleft}
+}
+
+%----------------------------------------------------------------------
+% ENGLISH ABSTRACT KEYWORDS (英文摘要關鍵字)
+%----------------------------------------------------------------------
+
+\def\enAbsKeywords{
+	\begin{flushleft}
+		{Keywords: \textbf{\@enKeywords}}
+	\end{flushleft}
+}
+
+%----------------------------------------------------------------------
 % COVER PAGE (封面頁)
 %----------------------------------------------------------------------
 
@@ -839,30 +898,6 @@
 		\fi
 	\fi
 }}
-
-%----------------------------------------------------------------------
-% CHINESE ACKNOWLEDGEMENT SIGNATURE (中文誌謝署名)
-%----------------------------------------------------------------------
-
-\def\zhAckSignature{
-	\begin{flushright}
-		\@zhStudentName \ 誌於 \\
-		{{\@zhUnivName}{\@zhInstName}} \\
-		\@zhDegreeYear
-	\end{flushright}
-}
-
-%----------------------------------------------------------------------
-% ENGLISH ACKNOWLEDGEMENT SIGNATURE (英文誌謝署名)
-%----------------------------------------------------------------------
-
-\def\enAckSignature{
-	\begin{flushleft}
-		\textbf{\@enStudentName} \\
-		{{\@enInstName}, {\@enUnivName}} \\
-		{{\@enDegreeMonth} {\@enDegreeYear}}
-	\end{flushleft}
-}
 
 %----------------------------------------------------------------------
 % CHINESE ABSTRACT (中文摘要)
