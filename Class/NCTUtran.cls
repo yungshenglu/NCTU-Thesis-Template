@@ -841,6 +841,30 @@
 }}
 
 %----------------------------------------------------------------------
+% CHINESE ACKNOWLEDGEMENT SIGNATURE (中文誌謝署名)
+%----------------------------------------------------------------------
+
+\def\zhAckSignature{
+	\begin{flushright}
+		\@zhStudentName \ 誌於 \\
+		{{\@zhUnivName}{\@zhInstName}} \\
+		\@zhDegreeYear
+	\end{flushright}
+}
+
+%----------------------------------------------------------------------
+% ENGLISH ACKNOWLEDGEMENT SIGNATURE (英文誌謝署名)
+%----------------------------------------------------------------------
+
+\def\enAckSignature{
+	\begin{flushleft}
+		\textbf{\@enStudentName} \\
+		{{\@enInstName}, {\@enUnivName}} \\
+		{{\@enDegreeMonth} {\@enDegreeYear}}
+	\end{flushleft}
+}
+
+%----------------------------------------------------------------------
 % CHINESE ABSTRACT (中文摘要)
 %----------------------------------------------------------------------
 
@@ -960,10 +984,10 @@
 }
 
 %----------------------------------------------------------------------
-% ACKNOWLEDGEMENT (誌謝頁)
+% ACKNOWLEDGEMENT (誌謝)
 %----------------------------------------------------------------------
 
-\def\zhAckPage{
+\def\ackPage{
 	\cleardoublepage
 	% HINT: remove watermark in this page
 	\ClearShipoutPicture
@@ -978,9 +1002,9 @@
 	\end{center}
 }
 
-\newenvironment{zhAck}{
+\newenvironment{acknowledgement}{
 	\ifTHESISOPTIONfinal
-		\zhAckPage
+		\ackPage
 		% Start a new paragraph and force the first line being indented
 		\par
 	\fi
