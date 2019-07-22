@@ -58,7 +58,7 @@ nctu-thesis-template
 │   └── 2-Abstract-en.tex           #   英文摘要 (自行編輯)
 ├── 4-Ack/                          # 4-誌謝與題獻 (自行編輯)
 │   ├── 1-Acknowledgement-zh.tex    #   誌謝頁 (自行編輯)
-│   └── 20Dedication.tex            #   題獻頁 (自行編輯) [博士論文使用]
+│   └── 2-Dedication.tex            #   題獻頁 (自行編輯) [博士論文使用]
 ├── 5-Chapters/                     # 5-論文各節內容 (可自行新增)
 │   ├── 1-Introduction.tex
 │   ├── 2-RelatedWork.tex
