@@ -10,7 +10,7 @@
 % SOURCE: https://github.com/yungshenglu
 %----------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{NCTUTran}[2019/07/17 V1.0 by Yung-Sheng Lu]
+\ProvidesClass{NCTUtran}[2019/07/17 V1.0 by Yung-Sheng Lu]
 
 %----------------------------------------------------------------------
 % DOCUMENT OPTIONS DECLARATION (文件選項定義)
