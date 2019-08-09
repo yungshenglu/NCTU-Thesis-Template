@@ -48,16 +48,16 @@ nctu-thesis-template
 |   └── Spine.docx                  #   書背製作檔 (自行編輯)
 ├── 1-Cert/                         # 1-論文口試審定書 (可自行新增)
 │   ├── .gitkeep
-│   ├── Certification-CSE.pdf       #   論文口試審定書範本 (資科工所)
-│   └── Certification-NE.pdf        #   論文口試審定書範本 (網工所)
+│   ├── 1-Certification-zh.pdf      #   論文口試審定書範本 (網工所)
+│   └── 2-Certification-en.pdf      #   論文口試審定書範本 (資科工所)
 ├── 2-Auth/                         # 2-論文授權書 (可自行新增)
 │   ├── .gitkeep
-│   └── Authorization-EX.pdf        #   論文授權書範本
+│   └── 1-Authorization.pdf         #   論文授權書範本
 ├── 3-Abs/                          # 3-摘要 (自行編輯)
 │   ├── 1-Abstract-zh.tex           #   中文摘要 (自行編輯)
 │   └── 2-Abstract-en.tex           #   英文摘要 (自行編輯)
 ├── 4-Ack/                          # 4-誌謝與題獻 (自行編輯)
-│   ├── 1-Acknowledgement-zh.tex    #   誌謝頁 (自行編輯)
+│   ├── 1-Acknowledgement.tex       #   誌謝頁 (自行編輯)
 │   └── 2-Dedication.tex            #   題獻頁 (自行編輯) [博士論文使用]
 ├── 5-Chapters/                     # 5-論文各節內容 (可自行新增)
 │   ├── 1-Introduction.tex
