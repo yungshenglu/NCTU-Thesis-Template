@@ -77,9 +77,19 @@
 
 %%% SELF-DEFINED COMMANDS %%%
 % HINT: Define your own commands as follows
-\newcommand{\secc}{\chapter}
-\newcommand{\sect}{Section}
-\newcommand{\sectlower}{section}
-\newcommand{\article}{thesis}
-\newcommand{\subsecc}{\subsection}
-\newcommand{\subsubsecc}{\subsubsection}
+%\def\isthesis{1}
+\ifx\isthesis\undefined
+    \newcommand{\secc}{\section}
+    \newcommand{\sect}{Section}
+    \newcommand{\sectlower}{section}
+    \newcommand{\article}{paper}
+    \newcommand{\subsecc}{\subsection}
+    \newcommand{\subsubsecc}{\subsubsection}
+\else
+    \newcommand{\secc}{\chapter}
+    \newcommand{\sect}{Chapter}
+    \newcommand{\sectlower}{chapter}
+    \newcommand{\article}{thesis}
+    \newcommand{\subsecc}{\section}
+    \newcommand{\subsubsecc}{\subsection}
+\fi
