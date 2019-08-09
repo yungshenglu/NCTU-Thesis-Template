@@ -28,7 +28,7 @@
     * 需等待 2-3 秒，若編譯成功，會在最後一行出現以下範例訊息，而不會有任何錯誤訊息。
         ```bash
         ...
-        Output written on main.pdf (22 pages).
+        Output written on main.pdf (23 pages).
         ```
     * 編譯成功後會自動生成 PDF 檔案 `main.pdf` 在 `Output/` 下。
 2. 如何移除編譯過程所產生的中間檔案 (e.g., `main.aux`, `main.bbl`, `main.blg`, etc.)？
