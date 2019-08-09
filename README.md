@@ -39,7 +39,7 @@
     * 中間檔案為非必要檔案，已經寫入 `.gitignore` 中。
 
 ---
-## File Structure
+## Description
 
 ```bash
 # In alphabetical order
@@ -94,6 +94,8 @@ nctu-thesis-template
 └── README.md                       # 說明文件 (本檔案)
 ```
 
+
+
 ---
 ## Useful Plugins
 
@@ -111,7 +113,7 @@ nctu-thesis-template
 ---
 ## Acknowledgement
 
-在編修此模板時，同時也參考以下的模板：
+在編修此模板時，同時也參考以下的模板，感謝以下前輩之貢獻：
 * 交通大學：[Po-haoHuang/nctu-thesis](https://github.com/Po-haoHuang/nctu-thesis)
 * 臺灣大學：[tzhuan/ntu-thesis](https://github.com/tzhuan/ntu-thesis)
 * 臺灣科技大學：[ntust-thesis](https://code.google.com/archive/p/ntust-thesis/downloads)

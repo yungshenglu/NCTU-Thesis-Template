@@ -17,7 +17,9 @@
 %----------------------------------------------------------------------
 
 % Inherent existing options from book document class
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
+\DeclareOption*{
+	\PassOptionsToClass{\CurrentOption}{book}
+}
 
 % Declare options for thesis types: (default: master)
 % 	1. thesis (master)
@@ -25,8 +27,14 @@
 \newif\ifTHESISOPTIONmaster				\THESISOPTIONmastertrue
 \newif\ifTHESISOPTIONphd				\THESISOPTIONphdfalse
 
-\DeclareOption{master}{\THESISOPTIONmastertrue\THESISOPTIONphdfalse}
-\DeclareOption{phd}{\THESISOPTIONmasterfalse\THESISOPTIONphdtrue}
+\DeclareOption{master}{
+	\THESISOPTIONmastertrue
+	\THESISOPTIONphdfalse
+}
+\DeclareOption{phd}{
+	\THESISOPTIONmasterfalse
+	\THESISOPTIONphdtrue
+}
 
 % Declare options for the language used in thesis: (default: english)
 % 	1. en (English)
@@ -34,21 +42,30 @@
 \newif\ifTHESISOPTIONen					\THESISOPTIONentrue
 \newif\ifTHESISOPTIONzh					\THESISOPTIONzhfalse
 
-\DeclareOption{en}{\THESISOPTIONentrue\THESISOPTIONzhfalse}
-\DeclareOption{zh}{\THESISOPTIONenfalse\THESISOPTIONzhtrue}
+\DeclareOption{en}{
+	\THESISOPTIONentrue
+	\THESISOPTIONzhfalse
+}
+\DeclareOption{zh}{
+	\THESISOPTIONenfalse
+	\THESISOPTIONzhtrue
+}
 
 % Declare binding option: (default: disabled)
 % HINT: Depend on the mode of thesis format
-% 	1. review: disabled
-%	2. draft : disabled
-%	3. final : enabled
+% 	1. review	: disabled
+%	2. draft 	: disabled
+%	3. final 	: enabled
 \newif\ifTHESISOPTIONbinding			\THESISOPTIONbindingfalse
-\DeclareOption{binding}{\THESISOPTIONbindingtrue}
+
+\DeclareOption{binding}{
+	\THESISOPTIONbindingtrue
+}
 
 % Declare options for print modes: (default: draft)
-% 	1. review: for thesis writing (hide all front matters)
-%	2. draft : draft for defence
-%	3. final : print version
+% 	1. review	: for thesis writing (hide all front matters)
+%	2. draft 	: draft for defence
+%	3. final 	: print version
 \newif\ifTHESISOPTIONreview				\THESISOPTIONreviewfalse
 \newif\ifTHESISOPTIONdraft				\THESISOPTIONdrafttrue
 \newif\ifTHESISOPTIONfinal				\THESISOPTIONfinalfalse
@@ -76,11 +93,28 @@
 
 % Declare watermark option: (default: disabled)
 % HINT: Depend on the mode of thesis format:
-%	1. review: never shown
-%	2. draft : print "DRAFT" in the background
-%	3. final : print the watermark specified by \watermark{}
+%	1. review	: never shown
+%	2. draft 	: print "DRAFT" in the background
+%	3. final 	: print the watermark specified by \watermark{}
 \newif\ifTHESISOPTIONwatermark			\THESISOPTIONwatermarkfalse
-\DeclareOption{watermark}{\THESISOPTIONwatermarktrue}
+\DeclareOption{watermark}{
+	\THESISOPTIONwatermarktrue
+}
+
+% Declare output option: (default: print)
+%	1. print	: Generate with cover page
+%	2. upload 	: Generate without cover page
+\newif\ifTHESISOPTIONprint				\THESISOPTIONprintfalse
+\newif\ifTHESISOPTIONupload				\THESISOPTIONuploadfalse
+
+\DeclareOption{print}{
+	\THESISOPTIONprinttrue
+	\THESISOPTIONuploadfalse
+}
+\DeclareOption{upload}{
+	\THESISOPTIONprintfalse
+	\THESISOPTIONuploadtrue
+}
 
 % Load basic options
 \ProcessOptions
@@ -199,7 +233,7 @@
 %%% ENGLISH %%%
 % Main font for English
 \newcommand{\mainfont}[1]{
-	\ifx&#1&
+	\ifx &#1&
 		\setmainfont[Ligatures=TeX]{Times New Roman}
 	\else
 		\setmainfont[Ligatures=TeX]{#1}
@@ -208,7 +242,7 @@
 
 % "Sans-serif" font for English
 \newcommand{\sansfont}[1]{
-	\ifx&#1&
+	\ifx &#1&
 		\setsansfont[Ligatures=TeX]{Arial}
 	\else
 		\setsansfont[Ligatures=TeX]{#1}
@@ -218,7 +252,7 @@
 %%% CHINESE %%%
 % Main (serif) font for Chinese
 \newcommand{\mainfontzh}[1]{
-	\ifx&#1&
+	\ifx &#1&
 		\ifwindows		% Windows
 			\setCJKmainfont{DFKai-SB}			% 標楷體
 		\else\iflinux	% Linux
@@ -227,7 +261,7 @@
 			\setCJKmainfont{Kaiti TC Regular}	% 楷體-繁
 		\else			% '-shell-escape' is not set, using Windows fonts as default
 			\setCJKmainfont{DFKai-SB}
-		\fi\fi\fi
+		\fi \fi \fi
 	\else
 		\setCJKmainfont{#1}
 	\fi
@@ -235,7 +269,7 @@
 
 % Sans-serif font for Chinese
 \newcommand{\sansfontzh}[1]{
-	\ifx&#1&
+	\ifx &#1&
 		\ifwindows		% Windows
 			\setCJKsansfont{PMingLiU}			% 新細明體
 		\else\iflinux	% Linux
@@ -244,7 +278,7 @@
 			\setCJKsansfont{LiSong Pro}			% 儷宋 Pro (明體)
 		\else			% '-shell-escape' is not set, using Windows fonts as default
 			\setCJKsansfont{PMingLiU}
-		\fi\fi\fi
+		\fi \fi \fi
 	\else
 		\setCJKsansfont{#1}
 	\fi
@@ -428,7 +462,7 @@
 
 % A wraper to generate toc, lof, and lot
 \def\maketocs{
-	\ifTHESISOPTIONreview\else
+	\ifTHESISOPTIONreview \else
 		% Table of Contents
 		\cleardoublepage
 		\phantomsection
@@ -479,7 +513,7 @@
 \fi
 
 % Set the spacing before and after chapter label/title
-%	 {type}{left}{before seperation}{after seperation}
+%	{type}{left}{before seperation}{after seperation}
 \titlespacing*{\chapter}{0em}{-40pt}{*6}
 
 %----------------------------------------------------------------------
@@ -510,9 +544,7 @@
 }
 
 % Update \cleardoublepage to handle watermark
-%
-%	 \chapter{} implicity calls \cleardoublepage first, then starts to print
-% chapter title and contents
+% 	\chapter{} implicity calls \cleardoublepage first, then starts to print chapter title and contents
 \let\oldcleardoublepage\cleardoublepage
 \renewcommand{\cleardoublepage}{
 	% Remove watermark if previous page is a blank even page in twoside mode.
@@ -543,27 +575,27 @@
 % the section label of a regular chapter. Hope someone can fix this in a smarter
 % way.
 \DeclareRobustCommand{\xCJKalphatozhnum}[1]{
-	\ifnum\strcmp{#1}{A} = 0 一 \else
-	\ifnum\strcmp{#1}{B} = 0 二 \else
-	\ifnum\strcmp{#1}{C} = 0 三 \else
-	\ifnum\strcmp{#1}{D} = 0 四 \else
-	\ifnum\strcmp{#1}{E} = 0 五 \else
-	\ifnum\strcmp{#1}{F} = 0 六 \else
-	\ifnum\strcmp{#1}{G} = 0 七 \else
-	\ifnum\strcmp{#1}{H} = 0 八 \else
-	\ifnum\strcmp{#1}{I} = 0 九 \else
-	\ifnum\strcmp{#1}{J} = 0 十 \else
-	\ifnum\strcmp{#1}{K} = 0 十一 \else
-	\ifnum\strcmp{#1}{L} = 0 十二 \else
-	\ifnum\strcmp{#1}{M} = 0 十三 \else
-	\ifnum\strcmp{#1}{N} = 0 十四 \else
-	\ifnum\strcmp{#1}{O} = 0 十五 \else
-	\ifnum\strcmp{#1}{P} = 0 十六 \else
-	\ifnum\strcmp{#1}{Q} = 0 十七 \else
-	\ifnum\strcmp{#1}{R} = 0 十八 \else
-	\ifnum\strcmp{#1}{S} = 0 十九 \else
-	\ifnum\strcmp{#1}{T} = 0 二十 \else 零
-	\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+	\ifnum \strcmp{#1}{A} = 0 一 \else
+	\ifnum \strcmp{#1}{B} = 0 二 \else
+	\ifnum \strcmp{#1}{C} = 0 三 \else
+	\ifnum \strcmp{#1}{D} = 0 四 \else
+	\ifnum \strcmp{#1}{E} = 0 五 \else
+	\ifnum \strcmp{#1}{F} = 0 六 \else
+	\ifnum \strcmp{#1}{G} = 0 七 \else
+	\ifnum \strcmp{#1}{H} = 0 八 \else
+	\ifnum \strcmp{#1}{I} = 0 九 \else
+	\ifnum \strcmp{#1}{J} = 0 十 \else
+	\ifnum \strcmp{#1}{K} = 0 十一 \else
+	\ifnum \strcmp{#1}{L} = 0 十二 \else
+	\ifnum \strcmp{#1}{M} = 0 十三 \else
+	\ifnum \strcmp{#1}{N} = 0 十四 \else
+	\ifnum \strcmp{#1}{O} = 0 十五 \else
+	\ifnum \strcmp{#1}{P} = 0 十六 \else
+	\ifnum \strcmp{#1}{Q} = 0 十七 \else
+	\ifnum \strcmp{#1}{R} = 0 十八 \else
+	\ifnum \strcmp{#1}{S} = 0 十九 \else
+	\ifnum \strcmp{#1}{T} = 0 二十 \else 零
+	\fi \fi \fi \fi \fi \fi \fi \fi \fi \fi \fi \fi \fi \fi \fi \fi \fi \fi \fi \fi
 }
 
 %----------------------------------------------------------------------
@@ -725,13 +757,68 @@
 }
 
 %----------------------------------------------------------------------
+% START PAGE (起始頁)
+%----------------------------------------------------------------------
+
+\def\startPage{
+	\cleardoublepage
+	\thispagestyle{empty}
+	% University, institute, and title
+	\begin{center}
+		% University
+		\fontsize{40}{40}{\makebox[10cm][s]{\@zhUnivName}} \\
+		\vspace{1.5\baselineskip}
+		% Institute
+		\fontsize{28}{28}{\makebox[1.333\width][s]{\textbf{\@zhInstName}}} \\
+		\vspace{1.5\baselineskip}
+		% Thesis/Dissertation type
+		\fontsize{24}{24}{\makebox[4.5cm][s]{\textbf{\@zhThesisType}}} \\
+		\ifTHESISOPTIONdraft
+			\vspace{1.5\baselineskip}
+			\makebox[2cm][s]{\textbf{初稿}} \\
+		\fi
+		\vfill
+		\singlespacing
+		% Chinese title
+		\LARGE{\@zhTitle} \\
+		\vspace{0.75\baselineskip}
+		% English title
+		\LARGE{\@enTitle} \\
+		\vfill
+	\end{center}
+	% Author & advisors
+	\begin{flushleft}
+		\singlespacing
+		\LARGE
+		\begin{tabular}{crll}
+			% Author
+			&\LARGE{\makebox[4em][s]{研究生}：}&{\@zhStudentName}&\vspace{1em} \\
+			% Advisor
+			&{指導教授：}&{\@zhAdvisorName}&{博士} \\
+			% Co-advisor A
+			\ifx \@zhCoadvisorNameA \@empty \else
+				&&{\@zhCoadvisorNameA}&{博士} \\
+			\fi
+			% Co-advisor B
+			\ifx \@zhCoadvisorNameB \@empty \else
+				&&{\@zhCoadvisorNameB}&{博士} \\
+			\fi
+		\end{tabular}
+	\end{flushleft}
+	\vspace{1in}
+	\vfill
+	% Submission date in Chinese
+	\begin{center}
+		\makebox[2.5\width][s]{\large\@zhDegreeYear} \\
+	\end{center}
+}
+
+%----------------------------------------------------------------------
 % TITLE PAGE (標題頁)
 %----------------------------------------------------------------------
 
 \def\titlePage{
 	\cleardoublepage
-	% HINT: Remove watermark in this page
-	\ClearShipoutPicture
 	\thispagestyle{empty}
 	% Chinese and English titles
 	\begin{center}
@@ -789,7 +876,7 @@
 		Submitted to {\@enInstName} \\
 		\@enCollegeName \\
 		\@enUnivName \\
-		in partial fulfilment of the requirements\\
+		in partial fulfilment of the requirements \\
 		for the Degree of \\
 		\@enDegree \\
 		in \\
@@ -807,52 +894,11 @@
 }
 
 %----------------------------------------------------------------------
-% AUTHORIZATION (授權書)
-%----------------------------------------------------------------------
-
-\def\zhAuthPage{
-	\cleardoublepage
-	% HINT: Remove watermark in this page
-	\ClearShipoutPicture
-	\thispagestyle{empty}
-	\phantomsection
-	\null\newpage
-}
-
-%----------------------------------------------------------------------
-% CHINESE CERTIFICATION (中文論文審定書)
-%----------------------------------------------------------------------
-
-\def\zhCertPage{
-	\cleardoublepage
-	% HINT: Remove watermark in this page
-	\ClearShipoutPicture
-	\thispagestyle{empty}
-	\phantomsection
-	\null\newpage
-}
-
-%----------------------------------------------------------------------
-% ENGLISH CERTIFICATION PAGE (英文論文審定書)
-%----------------------------------------------------------------------
-
-\def\enCertPage{
-	\cleardoublepage
-	% HINT: Remove watermark in this page
-	\ClearShipoutPicture
-	\thispagestyle{empty}
-	\phantomsection
-	\null\newpage
-}
-
-%----------------------------------------------------------------------
 % COPYRIGHT PAGE (版權頁)
 %----------------------------------------------------------------------
 
 \def\copyrightPage{
 	\cleardoublepage
-	% HINT: Remove watermark in this page
-	\ClearShipoutPicture
 	\thispagestyle{empty}
 	\rule[0pt]{0pt}{0pt} \\
 	\vspace{2.5in}
@@ -865,37 +911,70 @@
 }
 
 %----------------------------------------------------------------------
+% CHINESE CERTIFICATION (中文論文審定書)
+%----------------------------------------------------------------------
+
+\def\zhCertPage{
+	\cleardoublepage
+	\ClearShipoutPicture		% HINT: Remove watermark in this page
+	\thispagestyle{empty}
+	\phantomsection
+}
+
+%----------------------------------------------------------------------
+% ENGLISH CERTIFICATION PAGE (英文論文審定書)
+%----------------------------------------------------------------------
+
+\def\enCertPage{
+	\cleardoublepage
+	\ClearShipoutPicture		% HINT: Remove watermark in this page
+	\thispagestyle{empty}
+	\phantomsection
+}
+
+%----------------------------------------------------------------------
+% AUTHORIZATION PAGE (授權書)
+%----------------------------------------------------------------------
+
+\def\zhAuthPage{
+	\cleardoublepage
+	\ClearShipoutPicture		% HINT: Remove watermark in this page
+	\thispagestyle{empty}
+	\phantomsection
+}
+
+%----------------------------------------------------------------------
 % \maketitle REDEFINITION (重訂標題格式)
 %----------------------------------------------------------------------
 
 \def\maketitle{{
-	\ifTHESISOPTIONreview\else
-		% Cover page
-		\coverPage
+	\ifTHESISOPTIONreview \else
+		% Cover page (封面頁)
+		% HINT: Only for final mode
+		\ifTHESISOPTIONprint
+			\coverPage
+		\fi
 
-		% Set page numbering to 'roman' (i, ii, iii, ...)
-		\frontmatter
+		% Start page (起始頁)
+		\startPage
 
-		% Title page
+		% Title page (標題頁)
 		\titlePage
 
-		% Authorization page
-		% HINT: Please comment out if you use scan
-		%\zhAuthPage
-
-		% Chinese approval page
-		% HINT: Please comment out if you use scan
-		%\zhCertPage
-
-		% English approval page
-		% HINT: Please comment out if you use scan
-		%\enCertPage
-
-		% Copyright page
-		% HINT: Only final mode only
+		% Copyright page (版權頁)
+		% HINT: Only for final mode
 		\ifTHESISOPTIONfinal
 			\copyrightPage
 		\fi
+
+		% Chinese certification page (中文論文審定書)
+		\zhCertPage
+
+		% English certification page (英文論文審定書) [PhD only]
+		%\enCertPage
+
+		% Authorization page (授權書)
+		\zhAuthPage
 	\fi
 }}
 
@@ -910,6 +989,8 @@
 	\ifTHESISOPTIONfinal
 		\setcounter{page}{\the\numexpr\@reservedFrontPages+\arabic{page}\relax}
 	\fi
+	% Set page numbering to 'roman' (i, ii, iii, ...)
+	\frontmatter
 	\phantomsection
 	\addcontentsline{toc}{chapter}{\textbf{摘要}}
 	\begin{center}
@@ -949,15 +1030,19 @@
 
 % New environment for Chinese Abstract
 \newenvironment{zhAbstract}{
-	\ifTHESISOPTIONreview\else
+	\ifTHESISOPTIONreview \else
 		\zhAbsPage
 		% Start a new paragraph and force the first line being indented
 		\par
 	\fi
 	% Ignore input tex in review mode
-	\ifTHESISOPTIONreview\comment\fi	
-}{
-	\ifTHESISOPTIONreview\endcomment\fi
+	\ifTHESISOPTIONreview
+		\comment
+	\fi	
+} {
+	\ifTHESISOPTIONreview
+		\endcomment
+	\fi
 }
 
 %----------------------------------------------------------------------
@@ -1007,15 +1092,19 @@
 
 % New environment for English abstract
 \newenvironment{enAbstract}{
-	\ifTHESISOPTIONreview\else
+	\ifTHESISOPTIONreview \else
 		\enAbsPage
 		% Start a new paragraph and force the first line being indented
 		\par
 	\fi
 	% Ignore input tex in review mode
-	\ifTHESISOPTIONreview\comment\fi	
-}{
-	\ifTHESISOPTIONreview\endcomment\fi
+	\ifTHESISOPTIONreview
+		\comment
+	\fi	
+} {
+	\ifTHESISOPTIONreview
+		\endcomment
+	\fi
 }
 
 %----------------------------------------------------------------------
@@ -1024,8 +1113,6 @@
 
 \def\ackPage{
 	\cleardoublepage
-	% HINT: remove watermark in this page
-	\ClearShipoutPicture
 	\phantomsection
 	\addcontentsline{toc}{chapter}{\textbf{\@ackTitle}}
 	\begin{center}
@@ -1044,31 +1131,45 @@
 		\par
 	\fi
 	% Ignore input tex if not in final mode
-	\ifTHESISOPTIONfinal\else\comment\fi
-}{
-	\ifTHESISOPTIONfinal\else\endcomment\fi
+	\ifTHESISOPTIONfinal \else \comment \fi
+} {
+	\ifTHESISOPTIONfinal \else \endcomment \fi
 }
 
 %----------------------------------------------------------------------
-% DEDICATION (題獻頁)
+% DEDICATION (題獻頁) [PhD only]
 %----------------------------------------------------------------------
 
 \newenvironment{dedication}{
-	\ifTHESISOPTIONfinal\ifTHESISOPTIONphd
-		\cleardoublepage
-		% HINT: remove watermark in this page
-		\ClearShipoutPicture
-		\thispagestyle{empty}
-		\vspace*{6.6cm}
-		\begin{center}
-	\fi\fi
+	\ifTHESISOPTIONfinal
+		\ifTHESISOPTIONphd
+			\cleardoublepage
+			\thispagestyle{empty}
+			\vspace*{6.6cm}
+			\begin{center}
+		\fi 
+	\fi
 	% Ignore input tex if not in the final mode of a PhD dissertation
-	\ifTHESISOPTIONfinal\ifTHESISOPTIONphd\else\comment\fi\else\comment\fi
-}{
-	\ifTHESISOPTIONfinal\ifTHESISOPTIONphd\else\endcomment\fi\else\endcomment\fi
-	\ifTHESISOPTIONfinal\ifTHESISOPTIONphd
-		\end{center}
-	\fi\fi
+	\ifTHESISOPTIONfinal
+		\ifTHESISOPTIONphd \else
+			\comment
+		\fi
+	\else
+		\comment
+	\fi
+} {
+	\ifTHESISOPTIONfinal
+		\ifTHESISOPTIONphd \else
+			\endcomment
+		\fi
+	\else
+		\endcomment
+	\fi
+	\ifTHESISOPTIONfinal
+		\ifTHESISOPTIONphd
+			\end{center}
+		\fi
+	\fi
 }
 
 %----------------------------------------------------------------------
@@ -1077,17 +1178,29 @@
 	
 \newenvironment{vita}{
 	% HINT: Only be compiled in the draft or final mode of a PhD dissertation
-	\ifTHESISOPTIONreview\comment\else\ifTHESISOPTIONphd\else\comment\fi\fi
-		\cleardoublepage
-		\phantomsection
-		\addcontentsline{toc}{chapter}{\textbf{\@cvTitle}}
-		\ifTHESISOPTIONzh
-			\chapter*{\makebox[3em][s]{\@cvTitle}}
-		\else
-			\chapter*{\@cvTitle}
+	\ifTHESISOPTIONreview
+		\comment
+	\else
+		\ifTHESISOPTIONphd \else
+			\comment
 		\fi
-}{
-	\ifTHESISOPTIONreview\endcomment\else\ifTHESISOPTIONphd\else\endcomment\fi\fi
+	\fi
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\textbf{\@cvTitle}}
+	\ifTHESISOPTIONzh
+		\chapter*{\makebox[3em][s]{\@cvTitle}}
+	\else
+		\chapter*{\@cvTitle}
+	\fi
+} {
+	\ifTHESISOPTIONreview
+		\endcomment
+	\else
+		\ifTHESISOPTIONphd \else
+			\endcomment
+		\fi
+	\fi
 }
 
 %----------------------------------------------------------------------
@@ -1096,17 +1209,29 @@
 
 \newenvironment{publications}{
 	% HINT: Only be compiled in the draft or final mode of a PhD dissertation
-	\ifTHESISOPTIONreview\comment\else\ifTHESISOPTIONphd\else\comment\fi\fi
-		\cleardoublepage
-		\phantomsection
-		\addcontentsline{toc}{chapter}{\textbf{\@lopTitle}}
-		\ifTHESISOPTIONzh
-			\chapter*{\makebox[5.5em][s]{\@lopTitle}}
-		\else
-			\chapter*{\@lopTitle}
+	\ifTHESISOPTIONreview
+		\comment
+	\else
+		\ifTHESISOPTIONphd \else
+			\comment
 		\fi
-}{
-	\ifTHESISOPTIONreview\endcomment\else\ifTHESISOPTIONphd\else\endcomment\fi\fi
+	\fi
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\textbf{\@lopTitle}}
+	\ifTHESISOPTIONzh
+		\chapter*{\makebox[5.5em][s]{\@lopTitle}}
+	\else
+		\chapter*{\@lopTitle}
+	\fi
+} {
+	\ifTHESISOPTIONreview
+		\endcomment
+	\else
+		\ifTHESISOPTIONphd \else
+			\endcomment
+		\fi
+	\fi
 }
 
 \endinput
