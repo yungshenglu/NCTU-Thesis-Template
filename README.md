@@ -94,8 +94,6 @@ nctu-thesis-template
 └── README.md                       # 說明文件 (本檔案)
 ```
 
-
-
 ---
 ## Useful Plugins
 
