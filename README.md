@@ -65,9 +65,9 @@ nctu-thesis-template
 │   ├── 3-Design.tex
 │   ├── 4-Evaluation.tex
 │   └── 5-Conclusion.tex
-├── 6-Bib/                          # 6-參考書目
+├── 6-Bib/                          # 6-參考文獻
 │   ├── BSTcontrol.bib              #   IEEE 論文參考書目設定 (不需更動)
-│   └── thesis.bib                  #   參考書目檔 (自行編輯)
+│   └── thesis.bib                  #   參考文獻檔 (自行編輯)
 ├── 7-Appx/                         # 7-附錄 (可自行新增)
 │   └── 1-Appx.tex           
 ├── 8-Author/                       # 8-作者簡歷與著作列表 (自行編輯) [博士論文使用]
