@@ -30,7 +30,7 @@
         ...
         Output written on main.pdf (23 pages).
         ```
-    * 編譯成功後會自動生成 PDF 檔案 `main.pdf` 在 `Output/` 下。
+    * 編譯成功後會自動生成 PDF 檔案 `main.pdf`。
 2. 如何移除編譯過程所產生的中間檔案 (e.g., `main.aux`, `main.bbl`, `main.blg`, etc.)？
     ```bash
     # Make sure your current directory is correct
