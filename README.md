@@ -68,7 +68,7 @@
 # In alphabetical order
 nctu-thesis-template
 ├── 0-Cover/                        # 0-論文封面文件 (自行編輯)
-|   └── Spine.docx                  #   書背製作檔 (自行編輯)
+│   └── Spine.docx                  #   書背製作檔 (自行編輯)
 ├── 1-Cert/                         # 1-論文口試審定書 (可自行新增)
 │   ├── .gitkeep
 │   ├── 1-Certification-zh.pdf      #   論文口試審定書範本 (網工所)
