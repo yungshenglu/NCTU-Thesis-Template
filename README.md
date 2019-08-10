@@ -37,6 +37,29 @@
     $ make clean
     ```
     * 中間檔案為非必要檔案，已經寫入 `.gitignore` 中。
+3. 如何選擇輸出格式？
+    * 圖書館上傳格式 (Upload Mode)
+        1. 開啟 [`main.tex`](main.tex)。
+        2. 將以下程式碼 (Line 6) 中的 `print` 改為 `upload`。
+            ```latex
+            % Set the class of document by NCTU
+            \documentclass[master, watermark, final, upload]{Class/NCTUtran}
+            ```
+        3. 重新編譯即可。
+            ```bash
+            $ make
+            ```
+    * 印刷格式 (Print Mode)
+        1. 開啟 [`main.tex`](main.tex)。
+        2. 將以下程式碼 (Line 6) 中的 `upload` 改為 `print`。
+            ```latex
+            % Set the class of document by NCTU
+            \documentclass[master, watermark, final, print]{Class/NCTUtran}
+            ```
+        3. 重新編譯即可。
+            ```bash
+            $ make
+            ```
 
 ---
 ## Description
