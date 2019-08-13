@@ -101,9 +101,9 @@
 	\THESISOPTIONwatermarktrue
 }
 
-% Declare output option: (default: print)
-%	1. print	: Generate with cover page
-%	2. upload 	: Generate without cover page
+% Declare options for usage: (default: print)
+%	1. print	: output with cover page
+%	2. upload 	: output without cover page
 \newif\ifTHESISOPTIONprint				\THESISOPTIONprintfalse
 \newif\ifTHESISOPTIONupload				\THESISOPTIONuploadfalse
 
