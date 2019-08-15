@@ -6,6 +6,7 @@
 
 * 新增浮水印於致謝頁 (Acknowledgement)
 * 新增起始頁 (Start Page) 於標題頁前 (圖書館上傳版本規定)
+* 新增表目錄 (List of Tables)
 * 新增「論文輸出選項 (output option)」：送印 (print) / 上傳 (upload)
 
 ### Changed

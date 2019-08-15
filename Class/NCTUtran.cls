@@ -359,9 +359,8 @@
 \def\tocTitle#1{\gdef\@tocTitle{#1}}
 % Title of List of Figures
 \def\lofTitle#1{\gdef\@lofTitle{#1}}
-% Title of List of Tables
-% HINT: Not necessary for current template
-%\def\lotTitle#1{\gdef\@lotTitle{#1}}
+% Title of List of Tables (Comment out if unnecessary)
+\def\lotTitle#1{\gdef\@lotTitle{#1}}
 % Title of List of Bibliography
 \def\bibTitle#1{\gdef\@bibTitle{#1}}
 % Title of Curriculum Vitae
@@ -403,8 +402,8 @@
 	\ackTitle{Acknowledgement}
 	\tocTitle{Table of Contents}
 	\lofTitle{List of Figures}
-	% HINT: Not necessary for current template
-	%\lotTitle{List of Tables}
+	% List of Tables (Comment out if unnecessary)
+	\lotTitle{List of Tables}
 	\ifTHESISOPTIONmaster
 		\bibTitle{References}
 	\else
@@ -473,12 +472,11 @@
 		\phantomsection
 		\addcontentsline{toc}{chapter}{\textbf{\@lofTitle}}
 		\listoffigures
-		% List of Tables
-		% HINT: Not necessary for current template
-		%\cleardoublepage
-		%\phantomsection
-		%\addcontentsline{toc}{chapter}{\textbf{\@lotTitle}}
-		%\listoftables
+		% List of Tables (Comment out if unnecessary)
+		\cleardoublepage
+		\phantomsection
+		\addcontentsline{toc}{chapter}{\textbf{\@lotTitle}}
+		\listoftables
 	\fi
 }
 
